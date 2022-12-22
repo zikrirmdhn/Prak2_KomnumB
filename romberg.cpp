@@ -30,28 +30,28 @@ double romberg(double a, double b, int n){
     
     for (int i=1; i<=n; ++i){
     	for (int j=1; j<=n; ++j){
-    		printf("%.7f ", r[i][j]);
-		}
-		cout<<"\n";
+    	    printf("%.7f ", r[i][j]);
 	}
+	cout<<"\n";
+    }
     return r[n][n];
 }
 
 double trapezoid(double a, double b, int n){
-	double h = (b-a)/n;
-	double area = 0, curr=a;
+    double h = (b-a)/n;
+    double area = 0, curr=a;
 	
-	for (int i=1; i<=n; ++i){
-		area += (h/2) * (func(curr)+func(curr+h));
-		printf("%.7f\n", area);
-		curr += h;
-	}
+    for (int i=1; i<=n; ++i){
+	area += (h/2) * (func(curr)+func(curr+h));
+	printf("%.7f\n", area);
+	curr += h;
+    }
 	
-	return area;
+    return area;
 }
 
 int main(){
     
-	printf("%.7f\n\n", romberg(0, 1, 10));
+    printf("%.7f\n\n", romberg(0, 1, 10));
     printf("%.7f", trapezoid(0, 1, 10));
 }
