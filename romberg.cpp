@@ -27,6 +27,13 @@ double romberg(double a, double b, int n){
             r[i][j] = r[i][j-1] + (r[i][j-1] - r[i-1][j-1]) / (pow(4, j-1)-1);
         }
     }
+    
+    for (int i=1; i<=n; ++i){
+    	for (int j=1; j<=n; ++j){
+    		printf("%.7f ", r[i][j]);
+		}
+		cout<<"\n";
+	}
     return r[n][n];
 }
 
@@ -36,6 +43,7 @@ double trapezoid(double a, double b, int n){
 	
 	for (int i=1; i<=n; ++i){
 		area += (h/2) * (func(curr)+func(curr+h));
+		printf("%.7f\n", area);
 		curr += h;
 	}
 	
@@ -43,6 +51,7 @@ double trapezoid(double a, double b, int n){
 }
 
 int main(){
-    cout << romberg(0, 1, 10) << endl;
-    cout << trapezoid(0, 1, 10) <<endl;
+    
+	printf("%.7f\n\n", romberg(0, 1, 10));
+    printf("%.7f", trapezoid(0, 1, 10));
 }
